@@ -6,14 +6,6 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  // custom warna pallet dengan kode warna berikut:
-  // Contoh Palet:
-  // #FF0000 (Merah Bendera Indonesia)
-  // #FFFFFF (Putih)
-  // #F5F5F5 (Abu-abu Terang)
-  // #212121 (Hitam)
-  // #FFCCCC (Merah Muda Terang)
-  // #757575 (Abu-abu Tua)
   theme: {
     extend: {
       backgroundImage: {
@@ -29,6 +21,16 @@ const config: Config = {
       black: "#212121",
       "red-light": "#FFCCCC",
       "gray-dark": "#757575",
+    },
+    fontFamily: {
+      sans: ["Plus Jakarta Sans", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+    },
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
     },
   },
   plugins: [],
