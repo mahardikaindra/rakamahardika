@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { dir } from "i18next";
+import { languages } from "@/app/i18n/settings";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -10,13 +12,20 @@ export const metadata: Metadata = {
   description: "Personal website of Raka Mahardika",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return languages.map((lang) => ({ lang }));
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: any;
 }>) {
+  const { lang } = await params;
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir(lang)} suppressHydrationWarning={true}>
       <body className={`${inter.className} ${jakarta.className}`}>
         {children}
       </body>
