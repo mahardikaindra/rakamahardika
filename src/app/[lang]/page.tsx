@@ -8,8 +8,10 @@ import {
   Mail,
   Phone,
   ArrowRight,
+  FolderGit,
 } from "lucide-react";
 import LinkedIn from "@/components/icons/svg/LinkedIn";
+import ProjectsPage from "./project/page";
 
 export default function Home() {
   return (
@@ -43,6 +45,12 @@ export default function Home() {
               className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
             >
               Pengalaman
+            </a>
+            <a
+              href="#projects"
+              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+            >
+              Project
             </a>
             <a
               href="#education"
@@ -138,7 +146,7 @@ export default function Home() {
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Saya adalah seorang Mobile dan Web Developer berpengalaman dengan
             lebih dari 7 tahun keahlian dalam membangun aplikasi lintas
-            platform. Saya telah berhasil meluncurkan lebih dari 10 aplikasi di
+            platform. Saya telah berhasil meluncurkan lebih dari 8+ aplikasi di
             App Store dan Play Store, dengan spesialisasi di React Native dan
             Flutter. Saya terampil dalam mengimplementasikan pipeline CI/CD,
             integrasi Firebase, dan Clean Architecture untuk memberikan solusi
@@ -509,6 +517,17 @@ export default function Home() {
               </li>
             </ul>
           </div>
+        </section>
+
+        {/* Bagian Proyek */}
+        <section
+          id="projects"
+          className="bg-white p-8 md:p-12 rounded-xl shadow-md mb-12 md:mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 flex items-center">
+            <FolderGit className="mr-3 text-blue-600" size={32} /> Proyek Saya
+          </h2>
+          <ProjectsPage />
         </section>
 
         {/* Bagian Pendidikan & Sertifikasi */}
