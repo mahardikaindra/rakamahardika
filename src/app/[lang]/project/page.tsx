@@ -65,62 +65,50 @@ const projects = [
 // Komponen Halaman Proyek
 const ProjectsPage = () => {
   return (
-    <div className="font-inter antialiased bg-gray-50 text-gray-800 min-h-screen">
-      {/* Container utama halaman */}
-      <main className="container mx-auto px-4 py-8 pt-20 md:py-12 md:pt-24">
-        {/* Bagian Proyek */}
-        <section id="projects" className="bg-white p-8 md:p-12 rounded-xl shadow-md mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 flex items-center">
-            <FolderGit className="mr-3 text-blue-600" size={32} /> Proyek Saya
-          </h2>
+    <section id="projects" className="bg-white p-8">
+        {/* Grid untuk menampilkan kartu proyek */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+            // Kartu Proyek
+            <div
+            key={index}
+            className="bg-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
+            >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.name}</h3>
+            <p className="text-blue-600 font-medium text-sm mb-1">{project.company}</p>
+            <p className="text-gray-600 text-xs mb-3">{project.period}</p>
+            <p className="text-gray-700 text-sm mb-4 flex-grow">{project.description}</p>
 
-          {/* Grid untuk menampilkan kartu proyek */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              // Kartu Proyek
-              <div
-                key={index}
-                className="bg-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.name}</h3>
-                <p className="text-blue-600 font-medium text-sm mb-1">{project.company}</p>
-                <p className="text-gray-600 text-xs mb-3">{project.period}</p>
-                <p className="text-gray-700 text-sm mb-4 flex-grow">{project.description}</p>
-
-                {/* Daftar Tools */}
-                <div className="mb-4">
-                  <span className="font-semibold text-gray-800 text-sm">Tools:</span>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {project.tools.map((tool, toolIndex) => (
-                      <span
-                        key={toolIndex}
-                        className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
+            {/* Daftar Tools */}
+            <div className="mb-4">
+                <span className="font-semibold text-gray-800 text-sm">Tools:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                {project.tools.map((tool, toolIndex) => (
+                    <span
+                    key={toolIndex}
+                    className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                    >
+                    {tool}
+                    </span>
+                ))}
                 </div>
+            </div>
 
-                {/* Link Proyek (jika ada) */}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors mt-auto"
-                  >
-                    Lihat Proyek <ExternalLink className="ml-1" size={16} />
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Catatan: Navbar dan Footer bisa diimpor dari komponen layout utama Anda di Next.js */}
-    </div>
+            {/* Link Proyek (jika ada) */}
+            {project.link && (
+                <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors mt-auto"
+                >
+                Lihat Proyek <ExternalLink className="ml-1" size={16} />
+                </a>
+            )}
+            </div>
+        ))}
+        </div>
+    </section>
   );
 };
 
